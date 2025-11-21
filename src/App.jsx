@@ -3,9 +3,7 @@ import {
   BookOpen, 
   Users, 
   Target, 
-  MessageCircle, 
   Brain, 
-  Database, 
   ChevronDown, 
   Menu, 
   X, 
@@ -14,35 +12,34 @@ import {
 } from 'lucide-react';
 
 // --- Content Data Configuration ---
-// Easily edit this section to update website text
 const SITE_DATA = {
   home: {
-    title: "Critical Computing Group",
-    subtitle: "Interrogating the intersection of technology and society",
+    title: "Critical NLP Group",
+    subtitle: "Where Natural Language Processing Meets Critical and Sociotheoretical Inquiry",
     sections: [
       {
         id: "who-we-are",
         title: "Who We Are",
         icon: <Users className="w-6 h-6 text-blue-600" />,
-        content: "We are a collective of researchers, practitioners, and students dedicated to examining the social, ethical, and political implications of computing technologies. Our diverse backgrounds spanning computer science, sociology, and philosophy allow us to approach technical problems with critical depth."
+        content: "We are part of the ThirdSpace research group at the University of Toronto's Department of Computer Science. We are a collective of graduate students and researchers interested in examining the social, ethical, and political implications of NLP."
       },
       {
         id: "objective",
         title: "Our Objective",
         icon: <Target className="w-6 h-6 text-blue-600" />,
-        content: "Our primary objective is to foster a rigorous discourse around the design and deployment of algorithmic systems. We aim to uncover hidden biases, challenge techno-solutionism, and propose alternative frameworks for computing that prioritize human well-being and justice."
+        content: "We seek to shift NLP beyond the dominant heuristic practice by grounding it in rigorous theoretical and interdisciplinary discourse. Our aim is to foster dialogue shaped by diverse fields, encouraging critical reflection, shared learning, and the development of more socially grounded perspectives on NLP"
       },
       {
         id: "programs",
         title: "Programs",
         icon: <BookOpen className="w-6 h-6 text-blue-600" />,
-        content: "We organize a variety of activities to engage our community, including weekly reading groups discussing seminal texts, Q/A sessions with industry experts, and hands-on workshops. These programs are designed to bridge the gap between theory and practice."
+        content: "We will soon host a range of focused activities, including bi-weekly reading groups on seminal texts and Q&A sessions with experts from diverse disciplines. These programs aim to bridge the gap between conventional NLP practices and more theory-grounded approaches."
       },
       {
         id: "topics",
         title: "Topics",
         icon: <Brain className="w-6 h-6 text-blue-600" />,
-        content: "Our research focuses on critical areas such as Data Annotation labor practices, Automated Reasoning limitations, Fairness in Machine Learning, and the environmental impact of Large Language Models. We dive deep into the technical mechanisms to understand their societal echoes."
+        content: "We convene to examine themes that sit at the intersection of multiple disciplines, including LLM reasoning, fairness in machine learning, cultural bias and sensitivity, data-annotation practices, misinformation, and related concerns."
       }
     ]
   },
@@ -50,49 +47,47 @@ const SITE_DATA = {
     motivation: {
       title: "Our Motivation",
       content: [
-        "Technology is not neutral. Every line of code and every dataset carries the values and assumptions of its creators. In an era where algorithmic decision-making increasingly governs our lives—from hiring to policing—the need for critical inquiry has never been more urgent.",
-        "We are motivated by the widening gap between the rapid pace of technical innovation and the slower pace of ethical regulation. We believe that by embedding critical thinking directly into the computing curriculum and professional practice, we can steer the trajectory of technology towards more equitable ends.",
-        "Furthermore, we strive to demystify complex technical concepts for the broader public, empowering individuals to understand and question the digital systems that shape their reality."
+        "We seek to shift NLP beyond the dominant heuristic practice by grounding it in rigorous theoretical and interdisciplinary discourse. Our aim is to foster dialogue shaped by diverse fields, encouraging critical reflection, shared learning, and the development of more socially grounded perspectives on NLP"
       ]
     },
     whoWeAre: {
       title: "Who We Are",
       content: [
-        "Founded in 2024, the Critical Computing Group (CCG) started as a small discussion circle at the university library. Today, we have grown into a formal research unit comprised of faculty members, PhD candidates, and undergraduate scholars.",
-        "Our membership is open to anyone interested in the 'why' behind the 'how'. We actively collaborate with other departments including Sociology, Law, and Media Studies to ensure our technical critiques are grounded in robust social theory.",
-        "We value inclusivity, intellectual humility, and interdisciplinary collaboration. We are not just critics; we are builders who believe in building better."
+        "We are part of the ThirdSpace research group at the University of Toronto's Department of Computer Science. We are a collective of graduate students and researchers interested in examining the social, ethical, and political implications of NLP."
       ]
     },
-    // Dynamic Program Pages
     "program-reading": {
       title: "Reading Group",
       content: [
-        "Our Reading Group meets every Wednesday at 4 PM. We select texts that challenge conventional computing narratives, ranging from STS (Science and Technology Studies) classics to contemporary papers on AI ethics.",
-        "Current reading list includes 'Race After Technology' by Ruha Benjamin and 'The Age of Surveillance Capitalism' by Shoshana Zuboff. All sessions are hybrid, allowing for remote participation."
+        "Our Reading Group meets on Thursday at T PM every two weeks..."
       ]
     },
     "program-qa": {
       title: "Q/A Sessions",
       content: [
-        "The Q/A series invites practitioners from the field—software engineers, ethicists, and policy makers—to answer burning questions from students and researchers.",
-        "These sessions are 'off the record' to encourage candid discussions about the realities of working in the tech industry and the challenges of implementing ethical guidelines in profit-driven environments."
-      ]
-    },
-    // Dynamic Topic Pages
-    "topic-data": {
-      title: "Data Annotation",
-      content: [
-        "Data annotation is the hidden engine of modern AI. We investigate the labor conditions of annotators, the subjectivity inherent in labeling tasks, and the impact of 'ground truth' creation on downstream model performance.",
-        "Our recent work explores how cultural context affects the annotation of hate speech datasets and proposes new methodologies for 'disagreement-aware' annotation."
+        "The Q/A series invites experts and practitioners from diverse domains...."
       ]
     },
     "topic-reasoning": {
       title: "Reasoning & Logic",
       content: [
-        "Can machines truly reason, or do they merely mimic statistical patterns? This research track explores the limitations of current LLMs in logical inference and causal reasoning.",
-        "We are particularly interested in the failures of 'common sense' reasoning in critical scenarios, such as medical diagnosis or legal advice."
+        "Can machines truly reason, or do they merely mimic statistical patterns? This topic track explores the limitations of current LLMs in logical inference and causal reasoning.",
+        "We are particularly interested in the failures of 'common sense' reasoning in critical scenarios..."
       ]
-    }
+    },
+    "topic-bias": {
+      title: "Culture & Bias",
+      content: [
+         "To be filled soon.."
+      ]
+    },
+    "topic-data": {
+      title: "Data Annotation",
+      content: [
+        "To be filled soon.."
+      ]
+    },
+
   }
 };
 
@@ -116,8 +111,9 @@ const Navbar = ({ setPage, activePage }) => {
       label: 'Topics', 
       id: 'topics',
       dropdown: [
-        { label: 'Data Annotation', id: 'topic-data' },
-        { label: 'Reasoning', id: 'topic-reasoning' }
+        { label: 'Reasoning', id: 'topic-reasoning' },
+        { label: 'Culture & Bias', id: 'topic-bias' },
+        { label: 'Data Annotation', id: 'topic-data' }
       ]
     },
     { label: 'Motivation', id: 'motivation' },
@@ -265,10 +261,10 @@ const Footer = () => (
       <div>
         <div className="flex items-center mb-4">
           <Monitor className="h-6 w-6 text-blue-400 mr-2" />
-          <span className="font-bold text-xl text-white">CCG</span>
+          <span className="font-bold text-xl text-white">Critical NLP</span>
         </div>
         <p className="text-sm text-slate-400">
-          Advancing critical perspectives in computing research and education.
+          NLP + Other Disciplines.
         </p>
       </div>
       <div>
@@ -282,14 +278,14 @@ const Footer = () => (
       <div>
         <h3 className="text-white font-semibold mb-4">Location</h3>
         <p className="text-sm text-slate-400">
+          Third Space Research Lab<br/>
           Department of Computer Science<br/>
-          Tech University, Building 4<br/>
-          Room 302
+          University of Toronto
         </p>
       </div>
     </div>
     <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-      © 2024 Critical Computing Group. All rights reserved.
+      Created using Gemini + lot of manual tinkering
     </div>
   </footer>
 );
@@ -329,26 +325,6 @@ const HomePage = ({ setPage }) => {
           ))}
         </div>
       </div>
-
-      {/* Newsletter / CTA Strip */}
-      <div className="bg-slate-50 py-16 border-y border-slate-200">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Join the Conversation</h2>
-          <p className="text-slate-600 mb-8">
-            Interested in our research? Subscribe to our newsletter to get updates on upcoming reading groups and events.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none w-full sm:w-80"
-            />
-            <button className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors shadow-sm">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
@@ -374,17 +350,47 @@ const GenericPage = ({ id, data }) => {
 // --- Main App Component ---
 
 export default function App() {
-  // State to track the current page ('home' is default)
-  const [activePage, setActivePage] = useState('home');
+  // 1. Helper to determine page from the URL hash
+  const getPageFromHash = () => {
+    // Remove the '#' character from the hash
+    const hash = window.location.hash.replace('#', '');
+    // Default to 'home' if hash is empty
+    return hash || 'home';
+  };
 
-  // Scroll to top when page changes
+  // Initialize state based on current URL
+  const [activePage, setActivePage] = useState(getPageFromHash());
+
+  // 2. Effect to listen for browser navigation (Back/Forward buttons)
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [activePage]);
+    const handleHashChange = () => {
+      const newPage = getPageFromHash();
+      setActivePage(newPage);
+      window.scrollTo(0, 0); // Scroll to top on navigation
+    };
+
+    // Listen for 'hashchange' events
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // 3. Navigation function: Updates the URL hash instead of state directly
+  // The 'hashchange' listener above will detect this and update the state
+  const navigateTo = (pageId) => {
+    if (pageId === 'home') {
+      // Clear the hash for home
+      window.location.hash = ''; 
+    } else {
+      // Set hash for other pages
+      window.location.hash = pageId;
+    }
+  };
 
   const renderContent = () => {
     if (activePage === 'home') {
-      return <HomePage setPage={setActivePage} />;
+      return <HomePage setPage={navigateTo} />;
     }
     
     // Check if page exists in our data structure
@@ -394,16 +400,15 @@ export default function App() {
     }
     
     // Fallback maps navigating from Home cards to general pages if exact match missing
-    // E.g. clicking "Programs" card goes to first program or list (simplified here)
     if (activePage === 'programs') return <GenericPage id="program-reading" data={SITE_DATA.pages['program-reading']} />;
     if (activePage === 'topics') return <GenericPage id="topic-data" data={SITE_DATA.pages['topic-data']} />;
 
-    return <HomePage setPage={setActivePage} />;
+    return <HomePage setPage={navigateTo} />;
   };
 
   return (
     <div className="font-sans text-slate-900 bg-white min-h-screen flex flex-col">
-      <Navbar setPage={setActivePage} activePage={activePage} />
+      <Navbar setPage={navigateTo} activePage={activePage} />
       <main className="flex-grow">
         {renderContent()}
       </main>

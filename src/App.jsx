@@ -21,7 +21,7 @@ const SITE_DATA = {
         id: "who-we-are",
         title: "Who We Are",
         icon: <Users className="w-6 h-6 text-blue-600" />,
-        content: "We are part of the ThirdSpace research group at the University of Toronto's Department of Computer Science. We are a collective of graduate students and researchers interested in examining the social, ethical, and political implications of NLP."
+        content: "We are part of the ThirdSpace research lab at the University of Toronto's Department of Computer Science. We are a collective of graduate students and researchers interested in examining the social, ethical, and political implications of NLP."
       },
       {
         id: "objective",
@@ -132,7 +132,7 @@ const Navbar = ({ setPage, activePage }) => {
         <div className="flex justify-between h-16">
           <div className="flex items-center cursor-pointer" onClick={() => handleNavClick('home')}>
             <Monitor className="h-8 w-8 text-blue-700 mr-2" />
-            <span className="font-bold text-xl text-slate-800 tracking-tight">Critical Computing</span>
+            <span className="font-bold text-xl text-slate-800 tracking-tight">Critical NLP</span>
           </div>
 
           {/* Desktop Menu */}

@@ -15,7 +15,7 @@ import {
 const SITE_DATA = {
   home: {
     title: "Critical NLP Group",
-    subtitle: "Where Natural Language Processing Meets Critical and Sociotheoretical Inquiry",
+    subtitle: "Where Natural Language Processing Meets Critical and Interdisciplinary Inquiry",
     sections: [
       {
         id: "who-we-are",
@@ -33,13 +33,13 @@ const SITE_DATA = {
         id: "programs",
         title: "Programs",
         icon: <BookOpen className="w-6 h-6 text-blue-600" />,
-        content: "We will soon host a range of focused activities, including bi-weekly reading groups on seminal texts and Q&A sessions with experts from diverse disciplines. These programs aim to bridge the gap between conventional NLP practices and more theory-grounded approaches."
+        content: "Instead of functioning as a reading group cycling through papers periodically, this group will host a range of focused activities on defending substantive claims, interrogating taken-for-granted practices, and exploring conceptual resources from beyond NLP. These sessions aim to expand our epistemic boundaries and develop more theoretically grounded ways of doing NLP."
       },
       {
         id: "topics",
         title: "Topics",
         icon: <Brain className="w-6 h-6 text-blue-600" />,
-        content: "We convene to examine themes that sit at the intersection of multiple disciplines, including LLM reasoning, fairness in machine learning, cultural bias and sensitivity, data-annotation practices, misinformation, and related concerns."
+        content: "We convene to examine themes that sit at the intersection of multiple disciplines, including reasoning, fairness, cultural bias and sensitivity, annotation, misinformation, and related topics."
       }
     ]
   },

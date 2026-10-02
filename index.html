@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Critical NLP Discussion Group — University of Toronto</title>
+  <meta name="description" content="The Critical NLP Discussion Group is a special interest group at the University of Toronto grounding NLP in rigorous theoretical and interdisciplinary discourse." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1e3765;
+      --lavender: #efe9f7;
+      --lavender-dark: #ddd4ef;
+      --white: #ffffff;
+      --text-secondary: #4a5c80;
+      --logo-blue: #1d4ed8;
+      --nav-height: 68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    section[id] { scroll-margin-top: var(--nav-height); }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { color: var(--navy); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: var(--nav-height);
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--lavender-dark);
+      gap: 20px;
+    }
+
+    nav .uoft-logo { display: block; flex-shrink: 0; }
+    nav .uoft-logo img { height: 44px; width: auto; display: block; }
+
+    nav .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav .nav-links a:hover,
+    nav .nav-links a.active {
+      color: var(--navy);
+      border-bottom-color: var(--navy);
+    }
+
+    nav .menu-toggle {
+      display: none;
+      background: none;
+      border: 1.5px solid var(--navy);
+      border-radius: 3px;
+      color: var(--navy);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 90px 40px 64px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+
+    .hero .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--navy);
+      margin: 6px 0 24px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    /* ── DETAILS BAND ── */
+    .details-band {
+      background: var(--lavender);
+      padding: 28px 40px;
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      max-width: 780px;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+
+    .details-band .detail { display: flex; flex-direction: column; gap: 4px; }
+
+    .details-band .detail-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .details-band .detail-value {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 72px 40px;
+      max-width: 780px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--lavender-dark);
+    }
+
+    .section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+    .section strong { color: var(--navy); }
+
+    /* ── MODES ── */
+    .modes {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .mode {
+      background: var(--lavender);
+      border-left: 4px solid var(--navy);
+      border-radius: 6px;
+      padding: 24px 26px;
+    }
+
+    .mode .mode-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .mode h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .mode p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .mode details { margin-top: 16px; }
+
+    .mode summary {
+      display: inline-block;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy);
+      list-style: none;
+      border: 1.5px solid var(--navy);
+      border-radius: 3px;
+      padding: 5px 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .mode summary::-webkit-details-marker { display: none; }
+    .mode summary::after { content: " +"; }
+    .mode details[open] summary::after { content: " −"; }
+    .mode summary:hover { background: var(--navy); color: var(--white); }
+
+    .examples {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .examples li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .examples li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .examples li em { color: var(--navy); font-style: normal; font-weight: 700; }
+
+    /* ── JOIN (CTA) ── */
+    .cta-section {
+      background: var(--navy);
+      padding: 72px 40px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 0.97rem;
+      color: var(--lavender);
+      max-width: 620px;
+      margin: 0 auto 16px;
+      line-height: 1.75;
+    }
+
+    .cta-section a.cta-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--lavender);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .cta-section a.cta-btn:hover { background: var(--white); }
+
+    .cta-section .email {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--lavender-dark);
+    }
+
+    /* ── ORGANIZERS ── */
+    .people-section {
+      padding: 72px 40px;
+      max-width: 780px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--lavender-dark);
+    }
+
+    .people-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 36px;
+    }
+
+    .organizers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px 24px;
+    }
+
+    .person-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .person-card .photo {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: var(--lavender);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .person-card .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .person-card .person-name {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+
+    .person-card .person-name a { text-decoration: none; }
+    .person-card .person-name a:hover { text-decoration: underline; }
+
+    .person-card .person-role {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: -6px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 40px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 20px; }
+      nav .menu-toggle { display: block; }
+      nav .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--lavender-dark);
+        padding: 8px 20px 16px;
+      }
+      nav.open .nav-links { display: flex; }
+      nav .nav-links li { width: 100%; }
+      nav .nav-links a { display: block; padding: 10px 0; border-bottom: none; }
+      nav .nav-links a.active { border-bottom: none; }
+    }
+
+    @media (max-width: 700px) {
+      nav .uoft-logo img { height: 38px; }
+      .hero { padding: 56px 20px 40px; }
+      .details-band { padding: 24px 20px; gap: 20px; border-radius: 6px; margin: 0 16px; }
+      .section, .people-section { padding: 52px 20px; }
+      .mode { padding: 20px; }
+      .cta-section { padding: 56px 20px; }
+      .organizers-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="top-nav">
+    <a class="uoft-logo" href="https://www.utoronto.ca/" target="_blank" rel="noopener" aria-label="University of Toronto">
+      <img src="uoft.png" alt="University of Toronto" />
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#modes">Modes</a></li>
+      <li><a href="#join">Join Us</a></li>
+      <li><a href="#organizers">Organizers</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">ThirdSpace · University of Toronto</div>
+    <h1>Critical NLP Discussion Group</h1>
+    <p>Where Natural Language Processing meets critical and interdisciplinary inquiry.</p>
+  </header>
+
+  <div class="details-band">
+    <div class="detail">
+      <span class="detail-label">When</span>
+      <span class="detail-value">Biweekly</span>
+    </div>
+    <div class="detail">
+      <span class="detail-label">Where</span>
+      <span class="detail-value">DGP Lab, UofT &amp; online</span>
+    </div>
+    <div class="detail">
+      <span class="detail-label">Who</span>
+      <span class="detail-value">UofT students &amp; affiliates</span>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <section class="section" id="what-we-do">
+    <h2>What We Do</h2>
+    <p>We seek to shift NLP beyond the dominant heuristic practice by grounding it in rigorous theoretical and interdisciplinary discourse. Our aim is to foster dialogue shaped by diverse fields, encouraging critical reflection, shared learning, and the development of more socially grounded perspectives and methods in NLP.</p>
+    <p>To this end, instead of functioning only as a paper reading group, we host a range of focused activities on defending substantive claims, interrogating taken-for-granted practices, and exploring conceptual resources from beyond NLP. Through these sessions, we hope to expand our epistemic boundaries and develop more theoretically grounded ways of doing NLP.</p>
+  </section>
+
+  <!-- MODES -->
+  <section class="section" id="modes">
+    <h2>Modes of Engagement</h2>
+    <p>Currently, we are exploring three modes of engagement, each anchored in one or a few papers per session:</p>
+
+    <div class="modes">
+      <article class="mode">
+        <span class="mode-label">Mode 1</span>
+        <h3>Bring a Positive Claim</h3>
+        <p>Participants come prepared with a claim drawn from NLP research or practice that they find meaningful and are willing to defend, along with, optionally, a set of known critiques they have chosen to engage rather than avoid. The group's role is to interrogate the claim, assumptions, and boundaries of its validity.</p>
+        <details>
+          <summary>See examples</summary>
+          <ul class="examples">
+            <li>Reasoning benchmarks have diagnostic value even if they fail as measures of LLMs' general reasoning ability.</li>
+            <li>Chain-of-thought reasoning improves AI safety classification performance.</li>
+            <li>Integrating labels or preferences from more than one annotator makes models generate more diverse responses.</li>
+            <li>Fine-tuning with culturally diverse datasets improves models' cultural coverage.</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="mode">
+        <span class="mode-label">Mode 2</span>
+        <h3>Practices on Trial</h3>
+        <p>Participants identify a method, metric, or framing in NLP that tends to go unquestioned and is treated as standard, neutral, or simply the way things are done. The discussion moves beyond asking whether the practice works, and instead examines it as a social and epistemic phenomenon: why it emerged, what assumptions it encodes, whose interests it serves, and what it makes harder to see. The goal is interpretive rather than evaluative.</p>
+        <details>
+          <summary>See examples</summary>
+          <ul class="examples">
+            <li>Why do math, coding, and deductive logic tasks stand in for "reasoning"? Are they sufficient?</li>
+            <li>How did step-by-step decomposition (chain-of-thought) become synonymous with reasoning, and what kinds of reasoning does it sideline?</li>
+            <li>Why are annotators treated as interchangeable labor rather than socially situated knowers?</li>
+            <li>How did minimally paid crowdwork become "cost-effective" standard infrastructure?</li>
+            <li>Why is "English first, then multilingual" the default, and what gets baked in that can't be fixed later?</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="mode">
+        <span class="mode-label">Mode 3</span>
+        <h3>Epistemic Shift</h3>
+        <p>Participants bring a concept, method, or framework from outside NLP and make the case for its relevance. The discussion unpacks what the idea actually means in its home discipline, traces where it may already be quietly shaping NLP, and explores what it would look like to apply it more deliberately. The goal is to import dimensions from other disciplines that could reorient how NLP approaches core problems, expose blind spots, reframe questions, or suggest novel methodologies.</p>
+        <details>
+          <summary>See examples</summary>
+          <ul class="examples">
+            <li><em>Informal, pragmatic, and rhetorical reasoning</em> from informal logic</li>
+            <li><em>Situated cognition</em> from cognitive science</li>
+            <li><em>Standpoint epistemology</em> from feminist theory</li>
+            <li><em>Pluriversality</em> from decolonial theory</li>
+          </ul>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="cta-section" id="join">
+    <h2>Join Us</h2>
+    <p>We meet biweekly at the DGP Lab at the University of Toronto or online. All UofT students and affiliates are welcome to join. If you are interested, reach out by email.</p>
+    <a class="cta-btn" href="mailto:thirdspace.uoft.cs@gmail.com">Email us</a>
+    <span class="email">thirdspace.uoft.cs@gmail.com</span>
+  </section>
+
+  <!-- ORGANIZERS -->
+  <section class="people-section" id="organizers">
+    <h2>Organizers</h2>
+    <div class="organizers-grid">
+      <div class="person-card">
+        <div class="photo"><img src="ram.jpg" alt="Ramaravind Kommiya Mothilal" /></div>
+        <span class="person-name"><a href="https://ramaravind.com/" target="_blank" rel="noopener">Ramaravind Kommiya Mothilal</a></span>
+        <span class="person-role">Organizer</span>
+      </div>
+      <div class="person-card">
+        <div class="photo"><img src="https://www.cs.toronto.edu/~fsamir/samir_arendt.jpg" alt="Farhan Samir" /></div>
+        <span class="person-name"><a href="https://www.cs.toronto.edu/~fsamir/" target="_blank" rel="noopener">Farhan Samir</a></span>
+        <span class="person-role">Organizer</span>
+      </div>
+      <div class="person-card">
+        <div class="photo"><img src="ishtiaque.avif" alt="Syed Ishtiaque Ahmed" /></div>
+        <span class="person-name"><a href="https://www.ishtiaque.net/" target="_blank" rel="noopener">Syed Ishtiaque Ahmed</a></span>
+        <span class="person-role">Faculty Advisor</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Critical NLP Discussion Group · ThirdSpace · Department of Computer Science, University of Toronto
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const nav = document.getElementById('top-nav');
+    const toggle = nav.querySelector('.menu-toggle');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.textContent = open ? 'Close' : 'Menu';
+    });
+    nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+      toggle.textContent = 'Menu';
+    }));
+
+    // Highlight the nav link for the section in view
+    const links = [...nav.querySelectorAll('.nav-links a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+    const setActive = () => {
+      const y = window.scrollY + window.innerHeight * 0.35;
+      let current = null;
+      sections.forEach((s, i) => { if (s && s.offsetTop <= y) current = links[i]; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = links[links.length - 1];
+      links.forEach(a => a.classList.toggle('active', a === current));
+    };
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+  </script>
+</body>
+</html>

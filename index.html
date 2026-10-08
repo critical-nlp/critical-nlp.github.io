@@ -125,7 +125,7 @@
       background: var(--lavender);
       padding: 28px 40px;
       display: flex;
-      gap: 48px;
+      gap: 20px 36px;
       flex-wrap: wrap;
       max-width: 780px;
       margin: 0 auto;
@@ -171,6 +171,49 @@
 
     .section p:last-child { margin-bottom: 0; }
     .section strong { color: var(--navy); }
+
+    /* ── SESSION STEPS ── */
+    .steps {
+      list-style: none;
+      margin: 24px 0 24px;
+      border-top: 2px solid var(--navy);
+    }
+
+    .steps li {
+      display: flex;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--lavender-dark);
+    }
+
+    .steps .step-time {
+      flex-shrink: 0;
+      width: 84px;
+      height: fit-content;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--lavender);
+      border-radius: 4px;
+      padding: 4px 0;
+      text-align: center;
+    }
+
+    .steps h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .steps p { font-size: 0.9rem; line-height: 1.65; margin-bottom: 0; }
+
+    .section h3.sub {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 40px 0 0;
+    }
 
     /* ── MODES ── */
     .modes {
@@ -393,6 +436,7 @@
       .details-band { padding: 24px 20px; gap: 20px; border-radius: 6px; margin: 0 16px; }
       .section, .people-section { padding: 52px 20px; }
       .mode { padding: 20px; }
+      .steps li { flex-direction: column; gap: 8px; }
       .cta-section { padding: 56px 20px; }
       .organizers-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 24px 20px; }
@@ -409,7 +453,7 @@
     <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#what-we-do">What We Do</a></li>
-      <li><a href="#modes">Modes</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#join">Join Us</a></li>
       <li><a href="#organizers">Organizers</a></li>
     </ul>
@@ -417,7 +461,6 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="eyebrow"></div>
     <h1>Critical NLP Discussion Group</h1>
     <p>Where Natural Language Processing meets critical and interdisciplinary inquiry.</p>
   </header>
@@ -441,19 +484,33 @@
   <section class="section" id="what-we-do">
     <h2>What We Do</h2>
     <p>We seek to shift NLP beyond the dominant heuristic practice by grounding it in rigorous theoretical and interdisciplinary discourse. Our aim is to foster dialogue shaped by diverse fields, encouraging critical reflection, shared learning, and the development of more socially grounded perspectives and methods in NLP.</p>
-    <p>To this end, instead of functioning only as a paper reading group, we host a range of focused activities on defending substantive claims, interrogating taken-for-granted practices, and exploring conceptual resources from beyond NLP. Through these sessions, we hope to expand our epistemic boundaries and develop more theoretically grounded ways of doing NLP.</p>
+    <p>To this end, instead of functioning only as a paper reading group, we hold open discussions in which participants bring papers of their choice and examine them through three lenses: defending substantive claims, interrogating taken-for-granted practices, and exploring conceptual resources from beyond NLP. Through these sessions, we hope to expand our epistemic boundaries and develop more theoretically grounded ways of doing NLP.</p>
   </section>
 
-  <!-- MODES -->
-  <section class="section" id="modes">
-    <h2>Modes of Engagement</h2>
-    <p>Currently, we are exploring three modes of engagement, each anchored in one or a few papers per session:</p>
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <h2>How a Session Works</h2>
+    <p>Each session is an open discussion with no assigned reading. Bring any paper(s) you have read recently or would like to share with the group. Rather than summarizing them, we ask you to think about them through one (or more) of the three questions below. If you haven't prepared beforehand, the first part of the session is set aside for that.</p>
 
+    <ol class="steps">
+      <li>
+        <span class="step-time">10 min</span>
+        <div><h4>Prepare</h4><p>Pick a paper and frame it through one of the three questions.</p></div>
+      </li>
+      <li>
+        <span class="step-time">50 min</span>
+        <div><h4>Share & Discuss</h4><p>Each participant briefly shares their framing, not a summary of the paper. The group picks one or two framings to discuss in depth.</p></div>
+      </li>
+    </ol>
+
+    <p>Haven't read anything recently? Come anyway: bring something you read a while ago, or join to listen and respond.</p>
+
+    <h3 class="sub">Three Questions</h3>
     <div class="modes">
       <article class="mode">
-        <span class="mode-label">Mode 1</span>
-        <h3>Bring a Positive Claim</h3>
-        <p>Participants come prepared with a claim drawn from NLP research or practice that they find meaningful and are willing to defend, along with, optionally, a set of known critiques they have chosen to engage rather than avoid. The group's role is to interrogate the claim, assumptions, and boundaries of its validity.</p>
+      <h3>Bring a Positive Claim</h3>
+      <span class="mode-question">What claim would you defend?</span>
+        <p>Identify a claim from the paper, or from NLP research and practice more broadly, that you find meaningful and are willing to defend, along with any known critiques you choose to engage. The group interrogates the claim, its assumptions, and the boundaries of its validity.</p>
         <details>
           <summary>See examples</summary>
           <ul class="examples">
@@ -466,9 +523,9 @@
       </article>
 
       <article class="mode">
-        <span class="mode-label">Mode 2</span>
-        <h3>Practices on Trial</h3>
-        <p>Participants identify a method, metric, or framing in NLP that tends to go unquestioned and is treated as standard, neutral, or simply the way things are done. The discussion moves beyond asking whether the practice works, and instead examines it as a social and epistemic phenomenon: why it emerged, what assumptions it encodes, whose interests it serves, and what it makes harder to see. The goal is interpretive rather than evaluative.</p>
+      <h3>Practices on Trial</h3>
+      <span class="mode-question">What practice does it take for granted?</span>
+        <p>Identify a method, metric, or framing that the paper treats as standard, neutral, or simply the way things are done in NLP. The discussion moves beyond asking whether the practice works, and instead examines it as a social and epistemic phenomenon: why it emerged, what assumptions it encodes, whose interests it serves, and what it makes harder to see.</p>
         <details>
           <summary>See examples</summary>
           <ul class="examples">
@@ -482,16 +539,16 @@
       </article>
 
       <article class="mode">
-        <span class="mode-label">Mode 3</span>
-        <h3>Epistemic Shift</h3>
-        <p>Participants bring a concept, method, or framework from outside NLP and make the case for its relevance. The discussion unpacks what the idea actually means in its home discipline, traces where it may already be quietly shaping NLP, and explores what it would look like to apply it more deliberately. The goal is to import dimensions from other disciplines that could reorient how NLP approaches core problems, expose blind spots, reframe questions, or suggest novel methodologies.</p>
+        <span class="mode-label">Epistemic Shift</span>
+        <h3>What idea from outside NLP would reframe it?</h3>
+        <p>Bring a concept, method, or framework from another discipline and make the case for its relevance. The discussion unpacks what the idea actually means in its home discipline, traces where it may already be quietly shaping NLP, and explores what it would look like to apply it more deliberately, whether to expose blind spots, reframe questions, or suggest novel methodologies.</p>
         <details>
           <summary>See examples</summary>
           <ul class="examples">
-            <li><em>Informal, pragmatic, and rhetorical reasoning</em> from informal logic</li>
-            <li><em>Situated cognition</em> from cognitive science</li>
-            <li><em>Standpoint epistemology</em> from feminist theory</li>
-            <li><em>Pluriversality</em> from decolonial theory</li>
+            <li>Informal, pragmatic, and rhetorical reasoning from informal logic</li>
+            <li>Situated cognition from cognitive science</li>
+            <li>Standpoint epistemology from feminist theory</li>
+            <li>Pluriversality from decolonial theory</li>
           </ul>
         </details>
       </article>
@@ -501,7 +558,7 @@
   <!-- JOIN -->
   <section class="cta-section" id="join">
     <h2>Join Us</h2>
-    <p>We meet biweekly at the DGP Lab at the University of Toronto or online. All UofT students and affiliates are welcome to join. If you are interested, reach out by email.</p>
+    <p>We meet biweekly at the DGP Lab at the University of Toronto or online. All UofT students and affiliates are welcome to join, and no preparation is needed. If you are interested, reach out by email.</p>
     <a class="cta-btn" href="mailto:thirdspace.uoft.cs@gmail.com">Email us</a>
     <span class="email">thirdspace.uoft.cs@gmail.com</span>
   </section>

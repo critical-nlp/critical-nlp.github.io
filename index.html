@@ -360,10 +360,11 @@
 
     .organizers-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 24px;
+      max-width: 520px;
+      margin: 0 auto;
     }
-
     .person-card {
       display: flex;
       flex-direction: column;
@@ -582,11 +583,16 @@
         <span class="person-name"><a href="https://www.ishtiaque.net/" target="_blank" rel="noopener">Syed Ishtiaque Ahmed</a></span>
         <span class="person-role">Faculty Advisor</span>
       </div>
+      <div class="person-card">
+        <div class="photo"><img src="shion.jpg" alt="Shion Guha" /></div>
+        <span class="person-name"><a href="https://shionguha.ca/" target="_blank" rel="noopener">Shion Guha</a></span>
+        <span class="person-role">Faculty Advisor</span>
+      </div>
     </div>
   </section>
 
   <footer>
-    Critical NLP Discussion Group · ThirdSpace · Department of Computer Science, University of Toronto
+    Critical NLP Discussion Group · Department of Computer Science, University of Toronto
   </footer>
 
   <script>
